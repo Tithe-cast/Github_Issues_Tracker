@@ -255,6 +255,18 @@ const searchBtnIssues = document.getElementById("search-issue-btn")
 
 
     })
+function removeSpinner(status) {
 
+    if (status == true) {
+        document.getElementById("spinner-container").classList.remove("hidden");
+        document.getElementById("issuesContainer").classList.add("hidden");
+    } else {
+        document.getElementById("spinner-container").classList.add("hidden");
+        document.getElementById("issuesContainer").classList.remove("hidden");
+    }
+
+}
+
+ allIssuesApi();
 
 
