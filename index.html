@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GitHub Issues Tracker</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+ 
+<link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet">
+
+</head>
+<body class="bg bg-gray-100">
+<div class="flex flex-col gap-4 md:flex-row justify-between bg-white py-2 px-4 items-center">
+    <div class="flex gap-3">
+        <img src="./assets/Group.png" alt="">
+        <h1 class="text-2xl font-bold">GitHub Issues Tracker</h1>
+    </div>
+
+    <div class="flex gap-3">
+        <input id="search-issue" class="p-1 border rounded " type="text" placeholder="search issues">
+        <button id="search-issue-btn" class="btn btn-primary">Search</button>
+    </div>
+</div>
+<div class="flex justify-center">
+    <div class="bg-white p-4 shadow flex gap-2 mt-4 w-[80%] mb-5">
+
+        <button id="tabAll" class="btn" onclick="filterBtn('tabAll'); filterIssues('all')">All</button>
+        <button id="tabOpen" class="btn" onclick="filterBtn('tabOpen'); filterIssues('open')">Open</button>
+        <button id="tabClosed" class="btn" onclick="filterBtn('tabClosed');filterIssues('closed')">Closed</button>
+
+    </div>
+</div>
+<div class="flex justify-center">
+    <div class="bg-white p-4 shadow w-[80%] flex justify-between items-center mb-4">
+         <div>
+            <div class="flex items-center gap-3">
+            <span> <img src="./assets/Aperture.png" alt=""></span>
+            <p class="font-semibold">
+             <span id="issueCount">0</span> Issues
+            </p>
+        </div>
+              <p class="ml-10 text-gray-500">Track and manage your project issue</p>
+         </div>
+
+        <div class="flex gap-4 text-sm">
+            <span class="text-red-600 font-semibold"><span class="h-[10px] w-[10px] rounded-full inline-block text-green-600 bg-green-600 mr-2"></span>  Open</span>
+            <span class="text-green-600 font-semibold"> <span class="h-[10px] w-[10px] rounded-full inline-block text-purple-600 bg-purple-600 mr-2"></span>Closed</span>
+        </div>
+
+    </div>
+</div>
+
+<section class="flex justify-center">
+
+<div id="issuesContainer"
+class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 w-[80%]">
+</div>
+
+<div id="spinner-container" class=" flex justify-center items-center py-30 hidden">
+    <span class="loading loading-spinner loading-xl"></span>
+        </div>
+</section>
+
+ <dialog id="modal_card" class="modal modal-middle">
+    <div id="modal_container" class="modal-box space-y-3 max-w-[clamp(20rem,90vw,43.75rem)]">
+  </div>
+</dialog>
+
+</body>
+</html>
